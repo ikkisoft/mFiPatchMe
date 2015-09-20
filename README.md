@@ -2,7 +2,7 @@
 
 ### Background
 
-On the 3rd September 2015, [SecuriTeam][2] disclosed a vulnerability in the Ubiquiti Networks mFi Controller, a software to configure and control automation devices such as power outlets, light/motion/temperature sensors, etc.  To understand the capabilities of the machine-to-machine platform, please have a look at the [vendor page][3].
+On September 3, 2015 [SecuriTeam][2] disclosed a vulnerability in the Ubiquiti Networks mFi Controller, a software to configure and control automation devices such as power outlets, light/motion/temperature sensors, etc.  To understand the capabilities of the machine-to-machine platform, please have a look at the [vendor page][3].
 
 The security flaw allows an attacker to retrieve the current admin password due to a bypass in the authentication mechanism used by the mFi Controller Server.
 
