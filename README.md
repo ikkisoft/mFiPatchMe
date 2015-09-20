@@ -2,7 +2,7 @@
 
 ### Background
 
-On the 3rd September 2015, [SecuriTeam][2] disclosed a vulnerability in the Ubiquiti Networks mFi Controller, a software to configure and monitor control and automation devices such as power outlets, light/motion/temperature sensors, etc.  To understand the capabilities of the machine-to-machine platform, please have a look at the [vendor page][3].
+On the 3rd September 2015, [SecuriTeam][2] disclosed a vulnerability in the Ubiquiti Networks mFi Controller, a software to configure and control automation devices such as power outlets, light/motion/temperature sensors, etc.  To understand the capabilities of the machine-to-machine platform, please have a look at the [vendor page][3].
 
 The security flaw allows an attacker to retrieve the current admin password due to a bypass in the authentication mechanism used by the mFi Controller Server.
 
@@ -10,15 +10,15 @@ Just few hours after the public release of the [SSD Advisory – Ubiquiti Networ
 
 ### Digital Self-Defense
 
-Considering that the advisory published on 09/03/2015 contained a technical description of the security vulnerability, including a **reliable exploit**, it is reasonable to assume that the security flaw can be easily abused by unsophisticated attackers. While the information was removed from the [SecuriTeam website][6] and [/r/netsec][7], a quick search on Google is sufficient to find the exploit for this bug.
+Considering that the advisory published on 09/03/2015 contained a technical description of the vulnerability, including a **reliable exploit**, it is reasonable to assume that the security flaw can be easily abused by unsophisticated attackers. While the information was removed from the [SecuriTeam website][6] and [/r/netsec][7], a quick search on Google is sufficient to find the exploit for this bug.
 
 Despite the public exposure, **Ubiquiti has yet to publish a patch**. 
 
-After waiting patiently for a few weeks, I created my own patch. Using **mFiPatchMe**, you will be able to easily patch your controller and leave it running without worries. As it took me one hour to create a patch without preliminary knowledge of the codebase, it's surprising that Ubiquiti has not released a fix for this critical vulnerability.
+After waiting patiently for a few weeks, I created my own patch. Using **mFiPatchMe**, you will be able to easily patch your controller and leave it running without worries. As it took me one hour to create a fix without preliminary knowledge of the codebase, it's surprising that Ubiquiti has not released a solution for this security issue.
 
 > **Disclaimer:** 
 > This is NOT an official patch provided by [Ubiquiti Networks][8]. Use at your own risk!
-The patch tool does NOT contain any Ubiquiti Networks' code, library or resources.
+The patch tool does NOT include any Ubiquiti Networks' code, library or resources.
 
 ### How to patch your Ubiquiti mFi Controller 2.1.11 (Linux)
 
@@ -29,7 +29,7 @@ The patch tool does NOT contain any Ubiquiti Networks' code, library or resource
 5. Run the patch tool on the mFi controller JAR (*ace.jar*) ```$java -jar UbntmFiPatchMe.jar -file ace.jar``` and follow the instructions
 6. Once completed, start again the mFi controller service ```$sudo /etc/init.d/mfi start```
 
-At this point, the controller should work as usual. From my preliminary tests, the patch seems to work without side effects. *While the instructions are for Linux only, the same patch tool can be used for Ubiquiti mFi Controller 2.1.11 on Mac OS X and Windows.*
+At this point, the controller should work as usual. From my preliminary tests, the patch seems to work without side effects. *While these instructions are for Linux only, the same patch tool can be used for Ubiquiti mFi Controller 2.1.11 on Mac OS X and Windows.*
 
 ```java
 java -jar UbntmFiPatchMe.jar -file ace.jar 
@@ -39,7 +39,7 @@ java -jar UbntmFiPatchMe.jar -file ace.jar
   [*] Patching "com/ubnt/ace/view/AuthFilter" class
   [*] Ready to update "ace.jar". Are you sure? (yes/no)
   >yes
-  [*] Executing "jar -uvf ace.jar -C /tmp/1442714249482-0 com/ubnt/ace/view/AuthFilter.class"
+  [*] Executing "jar -uvf ace.jar -C /tmp/com/ubnt/ace/view/AuthFilter.class"
   [*] Patched
 ```
 ### Under the hood 
